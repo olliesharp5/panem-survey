@@ -42,6 +42,13 @@ def get_program_choice():
             print("Invalid choice. Please try again.")
 
 
+"""
+Prints instructions for the survery to user 
+Prints questions to the user and passes their response to the validator
+Puts user data into a list to send to worksheet
+"""
+
+
 def get_survey_data():
     print("Please answer all the questions truthfully.")
     print("Type your answers in lowercase. For answers requiring multiple items please separate with commas without spaces.")
@@ -77,6 +84,12 @@ def get_survey_data():
         break
 
 
+"""
+Validates each data input by user depending on the question asked 
+Prints a ValueError if invalid information submitted
+"""
+
+
 def validate_data(question, validation_type):
     while True:
         user_input = input(question)
@@ -110,6 +123,12 @@ def validate_data(question, validation_type):
 # add code to print answers back to the user?
 
 
+"""
+Accesses the google worksheet and adds the user inputted data to the bottom row 
+Returns the user to the main menu
+"""
+
+
 def update_survey(user_data):
     print("Updating survey...\n")
     survey_worksheet = SHEET.worksheet("results")
@@ -123,17 +142,22 @@ def update_survey(user_data):
 def calculate_statistics():
     print("Calculating statistics...\n")
     survey_worksheet = SHEET.worksheet("results")
-    
+
     column_values = survey_worksheet.col_values(1)[1:]
     total_entries = sum(1 for value in column_values if value)
     return total_entries
 
-
+    # average age
+    # youngest
+    # oldest
+    # married%
+    # children%
+    # illness%
+    # active%
 
 
 print("Welcome to the Panem national population survey.")
 get_program_choice()
-
 
 
 # get_statistics():
