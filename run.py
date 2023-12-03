@@ -56,17 +56,50 @@ def get_survey_data():
             get_program_choice()
             break
     
-        name = input("What is your name?\n")
-        age = input("What is your age?\n")
-        district = input("Which district are your from?\n")
-        occupation = input("What is your occupation?\n")
-        illness = input("Do you have any illnesses? (y/n)\n")
-        married = input("Are you married? (y/n)\n")
-        children = input("Do you have any children? (y/n)\n")
-        special_skills = input("List any special skills:\n")
-        survival_skills = input("How would you rate your survival skills (1-10)\n")
-        education = input("What is the highest level of education you have completed?\n")
-        physically_active = input("Are you physically active on a regular basis? (y/n)\n")
+        name = validate_data("What is your name?\n", 'string')
+        age = validate_data("What is your age?\n", 'age')
+        district = validate_data("Which district are your from?\n", 'district')
+        occupation = validate_data("What is your occupation?\n", 'string')
+        illness = validate_data("Do you have any illnesses? (y/n)\n", 'yes_no')
+        married = validate_data("Are you married? (y/n)\n", 'yes_no')
+        children = validate_data("Do you have any children? (y/n)\n", 'yes_no')
+        special_skills = validate_data("List any special skills:\n", 'string')
+        survival_skills = validate_data("How would you rate your survival skills (1-10)\n", 'rating')
+        education = validate_data("What is the highest level of education you have completed?\n", 'string')
+        physically_active = validate_data("Are you physically active on a regular basis? (y/n)\n", 'yes_no')
+
+
+def validate_data(question, validation_type):
+    while True:
+        user_input = input(question)
+
+        try:
+            if validation_type == 'string':
+                if isinstance(user_input, str):
+                    pass
+                else:
+                    raise ValueError
+            elif validation_type == 'age':
+                age = int(user_input)
+                if age <= 0:
+                    raise ValueError
+            elif validation_type == 'district':
+                district = int(user_input)
+                if district <= 0 or district > 13:
+                    raise ValueError
+            elif validation_type == 'yes_no':
+                if user_input.lower() not in ['y', 'n']:
+                    raise ValueError
+            elif validation_type == 'rating':
+                rating = int(user_input)
+                if rating < 1 or rating > 10:
+                    raise ValueError
+            
+            return user_input
+
+        except ValueError:
+            print("Invalid input. Please try again.")
+
 
 
 print("Welcome to the Panem national population survey.")
