@@ -122,6 +122,13 @@ def update_survey(user_data):
 
 def calculate_statistics():
     print("Calculating statistics...\n")
+    survey_worksheet = SHEET.worksheet("results")
+    
+    column_values = survey_worksheet.col_values(1)[1:]
+    total_entries = sum(1 for value in column_values if value)
+    return total_entries
+
+
 
 
 print("Welcome to the Panem national population survey.")
