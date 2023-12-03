@@ -116,6 +116,10 @@ def update_survey(user_data):
     survey_worksheet = SHEET.worksheet("results")
     survey_worksheet.append_row(user_data)
     print("Survey submission successful.\n")
+    print("You will now be returned to the main menu.\n")
+
+    get_program_choice()
+
 
 
 print("Welcome to the Panem national population survey.")
