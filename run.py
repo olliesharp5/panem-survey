@@ -75,7 +75,7 @@ def validate_data(question, validation_type):
 
         try:
             if validation_type == 'string':
-                if isinstance(user_input, str):
+                if isinstance(user_input, str) and not user_input.isdigit():
                     pass
                 else:
                     raise ValueError
