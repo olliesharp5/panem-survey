@@ -54,8 +54,8 @@ def get_survey_data():
         continue_prompt = input("Press 'y' to continue or 'n' to exit:\n")
         if continue_prompt == 'n':
             get_program_choice()
-            break
-    
+            return
+        
         name = validate_data("What is your name?\n", 'string')
         age = validate_data("What is your age?\n", 'age')
         district = validate_data("Which district are your from?\n", 'district')
@@ -67,6 +67,10 @@ def get_survey_data():
         survival_skills = validate_data("How would you rate your survival skills (1-10)\n", 'rating')
         education = validate_data("What is the highest level of education you have completed?\n", 'string')
         physically_active = validate_data("Are you physically active on a regular basis? (y/n)\n", 'yes_no')
+    
+        print("Thank you for submitting your answers")
+        break
+
 
 
 def validate_data(question, validation_type):
@@ -99,10 +103,14 @@ def validate_data(question, validation_type):
 
         except ValueError:
             print("Invalid input. Please try again.")
+#add code to print answers back to the user?
+
+def update_survey():
+    print("Updating survey...\n")
 
 
 
 print("Welcome to the Panem national population survey.")
 get_program_choice()
-
+update_survey()
 # get_statistics()
