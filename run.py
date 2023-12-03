@@ -36,8 +36,7 @@ def get_program_choice():
             get_survey_data()
             break
         elif choice == 'b':
-            print("Fetching statistics...")
-            # get_statistics()
+            calculate_statistics()
             break
         else:
             print("Invalid choice. Please try again.")
@@ -121,10 +120,13 @@ def update_survey(user_data):
     get_program_choice()
 
 
+def calculate_statistics():
+    print("Calculating statistics...\n")
+
 
 print("Welcome to the Panem national population survey.")
 get_program_choice()
 
 
-# calculate_statistics():
+
 # get_statistics():
