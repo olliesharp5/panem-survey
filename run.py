@@ -68,9 +68,10 @@ def get_survey_data():
         education = validate_data("What is the highest level of education you have completed?\n", 'string')
         physically_active = validate_data("Are you physically active on a regular basis? (y/n)\n", 'yes_no')
     
+        user_data = [name, age, district, occupation, illness, married, children, special_skills, survival_skills, education, physically_active]
+        update_survey(user_data)
         print("Thank you for submitting your answers")
         break
-
 
 
 def validate_data(question, validation_type):
@@ -105,8 +106,13 @@ def validate_data(question, validation_type):
             print("Invalid input. Please try again.")
 #add code to print answers back to the user?
 
-def update_survey():
+def update_survey(user_data):
     print("Updating survey...\n")
+    survey_worksheet = SHEET.worksheet("results")
+    survey_worksheet.append_row(user_data)
+    print("Survey submission successful.\n")
+
+
 
 
 
