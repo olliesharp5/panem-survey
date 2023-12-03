@@ -49,13 +49,13 @@ def get_survey_data():
     print("Example: 1,2,3,4")
     print("Completion of the survey will reduce your chance of being selected as Tribute in the next annual Hunger Games…")
     print("May the odds be ever in your favor.")
-    
+
     while True:
         continue_prompt = input("Press 'y' to continue or 'n' to exit:\n")
         if continue_prompt == 'n':
             get_program_choice()
             return
-        
+
         name = validate_data("What is your name?\n", 'string')
         age = validate_data("What is your age?\n", 'age')
         district = validate_data("Which district are your from?\n", 'district')
@@ -64,11 +64,15 @@ def get_survey_data():
         married = validate_data("Are you married? (y/n)\n", 'yes_no')
         children = validate_data("Do you have any children? (y/n)\n", 'yes_no')
         special_skills = validate_data("List any special skills:\n", 'string')
-        survival_skills = validate_data("How would you rate your survival skills (1-10)\n", 'rating')
-        education = validate_data("What is the highest level of education you have completed?\n", 'string')
-        physically_active = validate_data("Are you physically active on a regular basis? (y/n)\n", 'yes_no')
-    
-        user_data = [name, age, district, occupation, illness, married, children, special_skills, survival_skills, education, physically_active]
+        survival_skills = validate_data(
+            "How would you rate your survival skills (1-10)\n", 'rating')
+        education = validate_data(
+            "What is the highest level of education you have completed?\n", 'string')
+        physically_active = validate_data(
+            "Are you physically active on a regular basis? (y/n)\n", 'yes_no')
+
+        user_data = [name, age, district, occupation, illness, married, children,
+                     special_skills, survival_skills, education, physically_active]
         update_survey(user_data)
         print("Thank you for submitting your answers")
         break
@@ -99,12 +103,13 @@ def validate_data(question, validation_type):
                 rating = int(user_input)
                 if rating < 1 or rating > 10:
                     raise ValueError
-            
+
             return user_input
 
         except ValueError:
             print("Invalid input. Please try again.")
-#add code to print answers back to the user?
+# add code to print answers back to the user?
+
 
 def update_survey(user_data):
     print("Updating survey...\n")
@@ -113,10 +118,9 @@ def update_survey(user_data):
     print("Survey submission successful.\n")
 
 
-
-
-
 print("Welcome to the Panem national population survey.")
 get_program_choice()
-update_survey()
-# get_statistics()
+
+
+# calculate_statistics():
+# get_statistics():
