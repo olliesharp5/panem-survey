@@ -12,14 +12,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('panem_survey')
 
-""" use to print worksheet data in terminal 
-results = SHEET.worksheet('results')
-
-data = results.get_all_values()
-
-print(data)
-"""
-
 """
 Obtain which program to open based on the users input
 Validates their input and triggers desired program function
@@ -139,6 +131,13 @@ def update_survey(user_data):
     get_program_choice()
 
 
+"""
+Fetches values from the worksheet, performs calculations based on the statistic
+Prints the result to the user 
+Returns the user to the main menu
+"""
+
+
 def calculate_statistics():
     print("Calculating statistics...\n")
     survey_worksheet = SHEET.worksheet("results")
@@ -150,7 +149,8 @@ def calculate_statistics():
     age_values = survey_worksheet.col_values(2)[1:]
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
-    print(f"The average age of people who have submitted the survey is {average_age}.")
+    print(
+        f"The average age of people who have submitted the survey is {average_age} years old.")
 
     youngest = min(age_values)
     print(f"The youngest age is {youngest} years old.")
@@ -163,7 +163,8 @@ def calculate_statistics():
     print(f"{illness_percentage}% of people have indicated they suffer from some sort of illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
-    married_percentage = marital_status_values.count('y') / len(marital_status_values)*100
+    married_percentage = marital_status_values.count(
+        'y') / len(marital_status_values)*100
     print(f"{married_percentage}% of people are married.")
 
     children_values = survey_worksheet.col_values(7)[1:]
@@ -174,9 +175,10 @@ def calculate_statistics():
     active_percentage = activity_values.count('y') / len(activity_values)*100
     print(f"{active_percentage}% of people are physically active.")
 
+    menu_prompt = input("Press 'y' return to the main menu\n")
+    if menu_prompt == 'y':
+        get_program_choice()
+
 
 print("Welcome to the Panem national population survey.")
 get_program_choice()
-
-
-# get_statistics():
