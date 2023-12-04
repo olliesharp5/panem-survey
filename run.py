@@ -162,10 +162,13 @@ def calculate_statistics():
     illness_percentage = illness_values.count('y') / len(illness_values)*100
     print(illness_percentage)
 
+    marital_status_values = survey_worksheet.col_values(6)[1:]
+    married_percentage = marital_status_values.count('y') / len(marital_status_values)*100
+    print(married_percentage)
+
 
     # married%
     # children%
-    # illness%
     # active%
 
 
