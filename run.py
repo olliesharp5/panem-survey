@@ -158,6 +158,10 @@ def calculate_statistics():
     oldest = max(age_values)
     print(oldest)
 
+    illness_values = survey_worksheet.col_values(5)[1:]
+    illness_percentage = illness_values.count('y') / len(illness_values)*100
+    print(illness_percentage)
+
 
     # married%
     # children%
