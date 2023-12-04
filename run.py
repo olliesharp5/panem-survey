@@ -143,9 +143,14 @@ def calculate_statistics():
     print("Calculating statistics...\n")
     survey_worksheet = SHEET.worksheet("results")
 
-    column_values = survey_worksheet.col_values(1)[1:]
-    total_entries = sum(1 for value in column_values if value)
-    return total_entries
+    name_values = survey_worksheet.col_values(1)[1:]
+    total_entries = sum(1 for value in name_values if value)
+    print(total_entries)
+
+    age_values = survey_worksheet.col_values(2)[1:]
+    age_values = [int(age) for age in age_values if age]
+    average_age = sum(age_values) / len(age_values)
+    print(average_age)
 
     # average age
     # youngest
