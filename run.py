@@ -152,9 +152,13 @@ def calculate_statistics():
     average_age = sum(age_values) / len(age_values)
     print(average_age)
 
-    # average age
-    # youngest
-    # oldest
+    youngest = min(age_values)
+    print(youngest)
+
+    oldest = max(age_values)
+    print(oldest)
+
+
     # married%
     # children%
     # illness%
