@@ -145,34 +145,34 @@ def calculate_statistics():
 
     name_values = survey_worksheet.col_values(1)[1:]
     total_entries = sum(1 for value in name_values if value)
-    print(total_entries)
+    print(f"{total_entries} people have submitted the survey.")
 
     age_values = survey_worksheet.col_values(2)[1:]
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
-    print(average_age)
+    print(f"The average age of people who have submitted the survey is {average_age}.")
 
     youngest = min(age_values)
-    print(youngest)
+    print(f"The youngest age is {youngest} years old.")
 
     oldest = max(age_values)
-    print(oldest)
+    print(f"The oldest age is {oldest} years old.")
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(illness_percentage)
+    print(f"{illness_percentage}% of people have indicated they suffer from some sort of illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count('y') / len(marital_status_values)*100
-    print(married_percentage)
+    print(f"{married_percentage}% of people are married.")
 
     children_values = survey_worksheet.col_values(7)[1:]
     children_percentage = children_values.count('y') / len(children_values)*100
-    print(children_percentage)
+    print(f"{children_percentage}% of people have children.")
 
-
-    # children%
-    # active%
+    activity_values = survey_worksheet.col_values(11)[1:]
+    active_percentage = activity_values.count('y') / len(activity_values)*100
+    print(f"{active_percentage}% of people are physically active.")
 
 
 print("Welcome to the Panem national population survey.")
