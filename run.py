@@ -166,8 +166,11 @@ def calculate_statistics():
     married_percentage = marital_status_values.count('y') / len(marital_status_values)*100
     print(married_percentage)
 
+    children_values = survey_worksheet.col_values(7)[1:]
+    children_percentage = children_values.count('y') / len(children_values)*100
+    print(children_percentage)
 
-    # married%
+
     # children%
     # active%
 
