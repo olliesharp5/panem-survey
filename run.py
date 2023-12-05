@@ -39,9 +39,9 @@ Puts user data into a list to send to worksheet
 """
 def get_survey_data():
     print("Please answer all the questions truthfully.")
-    print("Type your answers in lowercase. For answers requiring multiple items please separate with commas without spaces.")
+    print("Type your answers in lowercase. For answers requiring multiple\nitems please separate with commas without spaces.")
     print("Example: 1,2,3,4")
-    print("Completion of the survey will reduce your chance of being selected as Tribute in the next annual Hunger Games…")
+    print("Completion of the survey will reduce your chance of being selected\nas Tribute in the next annual Hunger Games…")
     print("May the odds be ever in your favor.")
 
     while True:
@@ -139,7 +139,7 @@ def calculate_statistics():
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
     print(
-        f"The average age of people who have submitted the survey is {average_age} years old.")
+        f"The average age of people who have submitted the\nsurvey is {average_age} years old.")
 
     youngest = min(age_values)
     print(f"The youngest age is {youngest} years old.")
@@ -149,7 +149,7 @@ def calculate_statistics():
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(f"{illness_percentage}% of people have indicated they suffer from some sort of illness.")
+    print(f"{illness_percentage}% of people have indicated they suffer\nfrom some sort of illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count(
