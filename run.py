@@ -139,7 +139,7 @@ def calculate_statistics():
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
     print(
-        f"The average age of people who have submitted the\nsurvey is {average_age} years old.")
+        f"The average age of people who have submitted the survey is {round(average_age)} years old.")
 
     youngest = min(age_values)
     print(f"The youngest age is {youngest} years old.")
@@ -149,20 +149,20 @@ def calculate_statistics():
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(f"{illness_percentage}% of people have indicated they suffer\nfrom some sort of illness.")
+    print(f"{round(illness_percentage)}% of people have indicated they suffer from some sort of illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count(
         'y') / len(marital_status_values)*100
-    print(f"{married_percentage}% of people are married.")
+    print(f"{round(married_percentage)}% of people are married.")
 
     children_values = survey_worksheet.col_values(7)[1:]
     children_percentage = children_values.count('y') / len(children_values)*100
-    print(f"{children_percentage}% of people have children.")
+    print(f"{round(children_percentage)}% of people have children.")
 
     activity_values = survey_worksheet.col_values(11)[1:]
     active_percentage = activity_values.count('y') / len(activity_values)*100
-    print(f"{active_percentage}% of people are physically active.")
+    print(f"{round(active_percentage)}% of people are physically active.")
 
     menu_prompt = input("Press 'y' return to the main menu\n")
     if menu_prompt == 'y':
