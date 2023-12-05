@@ -163,10 +163,14 @@ def calculate_statistics():
     activity_values = survey_worksheet.col_values(11)[1:]
     active_percentage = activity_values.count('y') / len(activity_values)*100
     print(f"{round(active_percentage)}% of people are physically active.")
-
-    menu_prompt = input("Press 'y' return to the main menu\n")
-    if menu_prompt == 'y':
-        get_program_choice()
+    
+    while True:
+        menu_prompt = input("Press 'y' return to the main menu\n")
+        if menu_prompt == 'y':
+            get_program_choice()
+            break
+        else:
+            print("Error: Invalid input. Please enter 'y'.")
 
 
 print("Welcome to the Panem national population survey.")
