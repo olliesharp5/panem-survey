@@ -70,18 +70,23 @@ Due to this program being built for terminal use, there was not a design input.
 ### Existing Features
 
 * Start section
+The start section is the "landing page" of the survey. The user is met with a welcome message intorducing them to the survey. The user is then provided a choice as to whether they would like to start the survey or view the statistics. The terminal requires the user input "a" or "b" depending on their choice. 
 ![start_section]()
 
 * Survey_information
+If the user inputted "a" to the terminal at the start section the survey information section will display. This section informs users how to submit their data to the survey and provides more information about the benefits and use of the survey. The terminal then prompts the user to input "y" to continue or "n" to return to the start section.
 ![survey_information]()
 
 * Survey content
+The terminal prints the survey questions one at a time, each requires a response from the user to continue to the next. The survey responses are validated after each input to ensure the correct values have been used by the user. If the incorrect values have been used the terminal will print the error and provide the question again. 
 ![survey_content]()
 
 * Survey completion page
+Once all the questions have been submitted in line with the validator, a message will print to the terminal informing the survey is complete and their answers have been submitted. The user answers are sent to a Google worksheet to be recorded. The user is then automatically returned back to the start section where the initial start message will display. 
 ![survey_completion_page]()
 
 * Statistics section 
+If the user selects "b" at the start section they will be directed to the statistics. A prompt will print to the console inforing the user the statistics are being calculated. The program fetches the values submitted to the Google worksheet and calculates statsitstics based on the Python logic. The statsitics are then printed to the console. The user will then be prompted to input "y" to return to the start section.
 ![statistics_section]()
 
 
