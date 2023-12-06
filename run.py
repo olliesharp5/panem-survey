@@ -1,3 +1,5 @@
+import time
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -47,6 +49,7 @@ def get_survey_data():
     while True:
         continue_prompt = input("Press 'y' to continue or 'n' to exit:\n")
         if continue_prompt == 'n':
+            os.system('cls' if os.name == 'nt' else 'clear')
             get_program_choice()
             return
 
@@ -118,7 +121,8 @@ def update_survey(user_data):
     survey_worksheet.append_row(user_data)
     print("Survey submission successful.\n")
     print("You will now be returned to the main menu.\n")
-
+    time.sleep(2)
+    os.system('cls' if os.name == 'nt' else 'clear')
     get_program_choice()
 
 
@@ -167,6 +171,7 @@ def calculate_statistics():
     while True:
         menu_prompt = input("Press 'y' return to the main menu\n")
         if menu_prompt == 'y':
+            os.system('cls' if os.name == 'nt' else 'clear')
             get_program_choice()
             break
         else:
