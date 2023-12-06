@@ -59,11 +59,13 @@ Due to this program being built for terminal use, there was not a design input.
 
 ![Flowchart]()
 
+
 ## Technologies
 
 1. Lucid Charts 
 2. Python
 3. Heroku
+
 
 ## Features
 
@@ -106,6 +108,7 @@ In the future I would like to add,
 
 * Styling to the webpage. 
 
+
 ## Testing
 
 | Section Tested | Input To Validate | Expected Outcome | Actual Outcome | Pass/Fail |
@@ -140,15 +143,23 @@ No errors or warnings were found when passing though the linter.
 
 ![python_linter]()
 
+
 #### Fixed Bugs
 
-* TypeError
-* rounding statistics
-* validator issue at end of statistics section not displaying error message when "y" not inputted
+| **Bug** | **Fix** |
+| --- | --- |
+| TypeError was occuring when the validator was run | Removed calling the validator function outside |
+| Statistics were being calculated and not rounded correctly | inserted the round() function into the print |
+| Validator for the statistics was accepting values other than "y" | Amended validation to use while loop to check for input |
+| Text for the survey introduction was too long for the console | Added \n so the text can be wrapped in a readable way |
+| Terminal was clearing before the messages written above the command were displayed | Added a time delay to the terminal clear code using the time.sleep() function | 
+| The timesleep() and os.system() functions weren't working | I had to import these at the top of my code |
+
 
 #### Unfixed Bugs
 
 None 
+
 
 ## Deployment
 
@@ -175,3 +186,4 @@ The following git commands were used throughout development to push code to the 
 ### Content
 
 * I got the code for clearing the terminal from [stack overflow](https://stackoverflow.com/questions/2084508/clear-terminal-in-python)
+* I got the code for delaying the clearing of the console from [pierian training](https://pieriantraining.com/adding-delay-in-python-a-beginners-guide/#:~:text=Python%20provides%20a%20built%2Din,a%20specified%20number%20of%20seconds.)
