@@ -1,7 +1,7 @@
 # Panem Survey
 
-Welcome to the Panem national population survey. This survey is designed to obtain information about the population of Panem. The motivation for users to submit information is that they will have less of a chance to be selected for the Hunger Games. 
-In addition to the survey form, this program also contains a section where users can view the statistics based on current submissions. 
+Welcome to the Panem national population survey. This survey is designed to obtain information about the fictional population of Panem as seen in the books and films; The Hunger Games. The motivation for users to submit information is that they will have less of a chance to be chosen for the annual Hunger Games. 
+In addition to the survey form, this terminal also contains a section where users can view the statistics based on current submissions. 
 
 # Table of Contents
 - [Panem Survey](#panem-survey)
@@ -79,7 +79,7 @@ The start section is the "landing page" of the survey. The user is met with a we
 
 * Survey_information
 
-If the user inputted "a" to the terminal at the start section the survey information section will display. This section informs users how to submit their data to the survey and provides more information about the benefits and use of the survey. The terminal then prompts the user to input "y" to continue or "n" to return to the start section.
+If the user inputs "a" to the terminal at the start section the survey information section will display. This section informs users how to submit their data to the survey and provides more information about the benefits and use of the survey. The terminal then prompts the user to input "y" to continue or "n" to return to the start section.
 
 ![survey_information]()
 
@@ -97,7 +97,7 @@ Once all the questions have been submitted in line with the validator, a message
 
 * Statistics section 
 
-If the user selects "b" at the start section they will be directed to the statistics. A prompt will print to the console inforing the user the statistics are being calculated. The program fetches the values submitted to the Google worksheet and calculates statsitstics based on the Python logic. The statsitics are then printed to the console. The user will then be prompted to input "y" to return to the start section.
+If the user inputs "b" at the start section they will be directed to the statistics. A prompt will print to the console inforing the user the statistics are being calculated. The program fetches the values submitted to the Google worksheet and calculates statsitstics based on the Python logic. The statsitics are then printed to the console. The user will then be prompted to input "y" to return to the start section.
 
 ![statistics_section]()
 
