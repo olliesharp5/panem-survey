@@ -148,43 +148,45 @@ Returns the user to the main menu
 
 
 def calculate_statistics():
-    print("Calculating statistics...\n")
+    print("Calculating statistics...\n\n")
+    print("C U R R E N T   S T A T I S T I C S\n")
     survey_worksheet = SHEET.worksheet("results")
 
     name_values = survey_worksheet.col_values(1)[1:]
     total_entries = sum(1 for value in name_values if value)
-    print(f"{total_entries} people have submitted the survey.")
+    print(f"- {total_entries} individuals have participated in the survey.")
 
     age_values = survey_worksheet.col_values(2)[1:]
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
     print(
-        f"The average age of people who have submitted the survey is "
+        f"- The average age of survey participants is "
         f"{round(average_age)} years old.")
 
     youngest = min(age_values)
-    print(f"The youngest age is {youngest} years old.")
+    print(f"- The youngest participant is {youngest} years old.")
 
     oldest = max(age_values)
-    print(f"The oldest age is {oldest} years old.")
+    print(f"- The oldest participant is {oldest} years old.")
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(f"{round(illness_percentage)}% of people have indicated they suffer "
-          f"from some sort of illness.")
+    print(f"- {round(illness_percentage)}% of respondents reported having"
+          " an illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count(
         'y') / len(marital_status_values)*100
-    print(f"{round(married_percentage)}% of people are married.")
+    print(f"- {round(married_percentage)}% of participants are married.")
 
     children_values = survey_worksheet.col_values(7)[1:]
     children_percentage = children_values.count('y') / len(children_values)*100
-    print(f"{round(children_percentage)}% of people have children.")
+    print(f"- {round(children_percentage)}% of respondents have children.")
 
     activity_values = survey_worksheet.col_values(11)[1:]
     active_percentage = activity_values.count('y') / len(activity_values)*100
-    print(f"{round(active_percentage)}% of people are physically active.")
+    print(f"- {round(active_percentage)}% of individuals are physically"
+          " active.\n\n")
 
     while True:
         menu_prompt = input("Press 'y' return to the main menu\n")
