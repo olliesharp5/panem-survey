@@ -26,8 +26,11 @@ def get_program_choice():
     Validates their input and triggers desired program function
     """
     while True:
-        choice = input(
-            "\n- To submit data press 'a'\n- To view statistics press 'b'\n\n")
+        choice = input(f"\n- To submit data"
+                       f" press '{Fore.YELLOW}{Style.BRIGHT}"
+                       f"a{Style.RESET_ALL}'\n- To view statistics"
+                       f" press '{Fore.YELLOW}{Style.BRIGHT}"
+                       f"b{Style.RESET_ALL}'\n\n")
 
         if choice == 'a':
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -66,7 +69,10 @@ def get_survey_data():
     time.sleep(1)
 
     while True:
-        continue_prompt = input("Press 'y' to continue or 'n' to exit:\n")
+        continue_prompt = input(f"Press '{Fore.YELLOW}{Style.BRIGHT}"
+                                f"y{Style.RESET_ALL}' to continue or"
+                                f" '{Fore.YELLOW}{Style.BRIGHT}"
+                                f"n{Style.RESET_ALL}' to exit:\n")
         if continue_prompt == 'n':
             # clears console for windows, mac and linux
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -209,13 +215,16 @@ def calculate_statistics():
           " individuals are physically active.\n\n")
 
     while True:
-        menu_prompt = input("Press 'y' return to the main menu\n")
+        menu_prompt = input(f"Press '{Fore.YELLOW}{Style.BRIGHT}"
+                            f"y{Style.RESET_ALL}' to return to the"
+                            f" main menu\n")
         if menu_prompt == 'y':
             os.system('cls' if os.name == 'nt' else 'clear')
             main()
             break
         else:
-            print("Error: Invalid input. Please enter 'y'.")
+            print(f"Error: Invalid input. Please enter"
+                  f" '{Fore.YELLOW}{Style.BRIGHT}y{Style.RESET_ALL}'.")
 
 
 def main():
