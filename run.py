@@ -45,10 +45,10 @@ Puts user data into a list to send to worksheet
 
 def get_survey_data():
     print("Please answer all the questions truthfully.")
-    print("Type your answers in lowercase. For answers requiring multiple"
+    print("Type your answers in lowercase. For answers requiring multiple\n"
           "items please separate with commas without spaces.")
     print("Example: 1,2,3,4")
-    print("Completion of the survey will reduce your chance of being selected"
+    print("Completion of the survey will reduce your chance of being selected\n"
           "as Tribute in the next annual Hunger Games…")
     print("May the odds be ever in your favor.")
 
