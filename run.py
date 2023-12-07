@@ -19,13 +19,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('panem_survey')
 
-"""
-Obtain which program to open based on the users input
-Validates their input and triggers desired program function
-"""
-
 
 def get_program_choice():
+    """
+    Obtain which program to open based on the users input
+    Validates their input and triggers desired program function
+    """
     while True:
         choice = input(
             "\n- To submit data press 'a'\n- To view statistics press 'b'\n\n")
@@ -43,26 +42,25 @@ def get_program_choice():
             print("Invalid choice. Please try again.")
 
 
-"""
-Prints instructions for the survery to user
-Prints questions to the user and passes their response to the validator
-Puts user data into a list to send to worksheet
-"""
-
-
 def get_survey_data():
+    """
+    Prints instructions for the survery to user
+    Prints questions to the user and passes their response to the validator
+    Puts user data into a list to send to worksheet
+    """
     print("1. Please answer all the questions truthfully.")
     time.sleep(1)
     print("2. Type your answers in lowercase.")
     time.sleep(1)
     print("3. For answers requiring multiple items please separate with"
-    " commas.")
+          " commas.")
     print("   Example: 1,2,3,4\n\n")
     time.sleep(1)
     print("By completing the survey, you can lower the possibility of being"
           " chosen as a Tribute in the next annual Hunger Games.\n\n")
     time.sleep(1)
-    print(Fore.BLACK + Back.WHITE + Style.BRIGHT + "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
+    print(Fore.BLACK + Back.WHITE + Style.BRIGHT +
+          "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
     time.sleep(1)
 
     while True:
@@ -98,13 +96,11 @@ def get_survey_data():
         break
 
 
-"""
-Validates each data input by user depending on the question asked
-Prints a ValueError if invalid information submitted
-"""
-
-
 def validate_data(question, validation_type):
+    """
+    Validates each data input by user depending on the question asked
+    Prints a ValueError if invalid information submitted
+    """
     while True:
         user_input = input(question)
 
@@ -137,13 +133,11 @@ def validate_data(question, validation_type):
             print("Invalid input. Please try again.")
 
 
-"""
-Accesses the google worksheet and adds the user inputted data to the bottom row
-Returns the user to the main menu
-"""
-
-
 def update_survey(user_data):
+    """
+    Accesses the google worksheet and adds the user inputted data to the bottom row
+    Returns the user to the main menu
+    """
     print("Updating survey...\n")
     survey_worksheet = SHEET.worksheet("results")
     survey_worksheet.append_row(user_data)
@@ -154,18 +148,17 @@ def update_survey(user_data):
     main()
 
 
-"""
-Fetches values from the worksheet, performs calculations based on the statistic
-Prints the result to the user
-Returns the user to the main menu
-"""
-
-
 def calculate_statistics():
+    """
+    Fetches values from the worksheet, performs calculations based on the statistic
+    Prints the result to the user
+    Returns the user to the main menu
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Calculating statistics...\n\n")
     time.sleep(1)
-    print(Fore.BLACK + Back.WHITE + Style.BRIGHT + " C U R R E N T   S T A T I S T I C S \n")
+    print(Fore.BLACK + Back.WHITE + Style.BRIGHT +
+          " C U R R E N T   S T A T I S T I C S \n")
     survey_worksheet = SHEET.worksheet("results")
 
     name_values = survey_worksheet.col_values(1)[1:]
@@ -180,10 +173,12 @@ def calculate_statistics():
         f"{Style.BRIGHT}{round(average_age)}{Style.RESET_ALL} years old.")
 
     youngest = min(age_values)
-    print(f"- The youngest participant is {Style.BRIGHT}{youngest}{Style.RESET_ALL} years old.")
+    print(
+        f"- The youngest participant is {Style.BRIGHT}{youngest}{Style.RESET_ALL} years old.")
 
     oldest = max(age_values)
-    print(f"- The oldest participant is {Style.BRIGHT}{oldest}{Style.RESET_ALL} years old.")
+    print(
+        f"- The oldest participant is {Style.BRIGHT}{oldest}{Style.RESET_ALL} years old.")
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
@@ -215,7 +210,11 @@ def calculate_statistics():
 
 
 def main():
-    print(Fore.BLACK + Back.WHITE + Style.BRIGHT + " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N   S U R V E Y ")
+    """
+    Runs the start program print message and choice function
+    """
+    print(Fore.BLACK + Back.WHITE + Style.BRIGHT +
+          " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N   S U R V E Y ")
     get_program_choice()
 
 
