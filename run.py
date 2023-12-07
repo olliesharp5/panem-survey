@@ -28,7 +28,7 @@ Validates their input and triggers desired program function
 def get_program_choice():
     while True:
         choice = input(
-            "\n- To submit data press 'a'\n- To view statistics press 'b'\n")
+            "\n- To submit data press 'a'\n- To view statistics press 'b'\n\n")
 
         if choice == 'a':
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -151,7 +151,7 @@ def update_survey(user_data):
     print("You will now be returned to the main menu.\n")
     time.sleep(2)
     os.system('cls' if os.name == 'nt' else 'clear')
-    get_program_choice()
+    main()
 
 
 """
@@ -208,11 +208,15 @@ def calculate_statistics():
         menu_prompt = input("Press 'y' return to the main menu\n")
         if menu_prompt == 'y':
             os.system('cls' if os.name == 'nt' else 'clear')
-            get_program_choice()
+            main()
             break
         else:
             print("Error: Invalid input. Please enter 'y'.")
 
 
-print(Fore.BLACK + Back.WHITE + Style.BRIGHT + " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N   S U R V E Y ")
-get_program_choice()
+def main():
+    print(Fore.BLACK + Back.WHITE + Style.BRIGHT + " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N   S U R V E Y ")
+    get_program_choice()
+
+
+main()
