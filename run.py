@@ -1,7 +1,12 @@
+import colorama
 import time
 import os
 import gspread
 from google.oauth2.service_account import Credentials
+from colorama import Fore, Back, Style
+
+# Initialize colorama
+colorama.init(autoreset=True)
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
