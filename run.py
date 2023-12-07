@@ -28,7 +28,7 @@ Validates their input and triggers desired program function
 def get_program_choice():
     while True:
         choice = input(
-            "- To submit data press 'a'\n- To view statistics press 'b'\n")
+            "\n- To submit data press 'a'\n- To view statistics press 'b'\n")
 
         if choice == 'a':
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -214,5 +214,5 @@ def calculate_statistics():
             print("Error: Invalid input. Please enter 'y'.")
 
 
-print(Style.BRIGHT + "WELCOME TO THE PANEM NATIONAL POPULATION SURVEY\n\n")
+print(Fore.BLACK + Back.WHITE + Style.BRIGHT + " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N   S U R V E Y ")
 get_program_choice()
