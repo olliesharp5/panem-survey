@@ -143,7 +143,7 @@ def update_survey(user_data):
     survey_worksheet.append_row(user_data)
     print("Survey submission successful.\n")
     print("You will now be returned to the main menu.\n")
-    time.sleep(2)
+    time.sleep(3)
     os.system('cls' if os.name == 'nt' else 'clear')
     main()
 
