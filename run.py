@@ -55,13 +55,14 @@ def get_survey_data():
     time.sleep(1)
     print("3. For answers requiring multiple items please separate with"
           " commas.")
-    print("   Example: 1,2,3,4\n\n")
+    print("   example: 1,2,3,4\n\n")
     time.sleep(1)
     print("By completing the survey, you can lower the possibility of being"
           " chosen as a Tribute in the next annual Hunger Games.\n\n")
     time.sleep(1)
     print(Style.BRIGHT +
-          "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
+          "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R"
+          "   F A V O R.\n\n")
     time.sleep(1)
 
     while True:
@@ -136,7 +137,8 @@ def validate_data(question, validation_type):
 
 def update_survey(user_data):
     """
-    Accesses the google worksheet and adds the user inputted data to the bottom row
+    Accesses the google worksheet and adds the user inputted data to
+    the bottom row
     Returns the user to the main menu
     """
     print("Updating survey...\n")
@@ -151,7 +153,8 @@ def update_survey(user_data):
 
 def calculate_statistics():
     """
-    Fetches values from the worksheet, performs calculations based on the statistic
+    Fetches values from the worksheet, performs calculations based
+    on the statistic
     Prints the result to the user
     Returns the user to the main menu
     """
@@ -164,7 +167,8 @@ def calculate_statistics():
 
     name_values = survey_worksheet.col_values(1)[1:]
     total_entries = sum(1 for value in name_values if value)
-    print(f"- {Style.BRIGHT}{total_entries}{Style.RESET_ALL} individuals have participated in the survey.")
+    print(f"- {Style.BRIGHT}{total_entries}{Style.RESET_ALL} individuals"
+          " have participated in the survey.")
 
     age_values = survey_worksheet.col_values(2)[1:]
     age_values = [int(age) for age in age_values if age]
@@ -175,30 +179,34 @@ def calculate_statistics():
 
     youngest = min(age_values)
     print(
-        f"- The youngest participant is {Style.BRIGHT}{youngest}{Style.RESET_ALL} years old.")
+        f"- The youngest participant"
+        f" is {Style.BRIGHT}{youngest}{Style.RESET_ALL} years old.")
 
     oldest = max(age_values)
     print(
-        f"- The oldest participant is {Style.BRIGHT}{oldest}{Style.RESET_ALL} years old.")
+        f"- The oldest participant"
+        f" is {Style.BRIGHT}{oldest}{Style.RESET_ALL} years old.")
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(f"- {Style.BRIGHT}{round(illness_percentage)}%{Style.RESET_ALL} of respondents reported having"
-          " an illness.")
+    print(f"- {Style.BRIGHT}{round(illness_percentage)}%{Style.RESET_ALL} of"
+          " respondents reported having an illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count(
         'y') / len(marital_status_values)*100
-    print(f"- {Style.BRIGHT}{round(married_percentage)}%{Style.RESET_ALL} of participants are married.")
+    print(f"- {Style.BRIGHT}{round(married_percentage)}%{Style.RESET_ALL} of"
+          " participants are married.")
 
     children_values = survey_worksheet.col_values(7)[1:]
     children_percentage = children_values.count('y') / len(children_values)*100
-    print(f"- {Style.BRIGHT}{round(children_percentage)}%{Style.RESET_ALL} of respondents have children.")
+    print(f"- {Style.BRIGHT}{round(children_percentage)}%{Style.RESET_ALL} of"
+          " respondents have children.")
 
     activity_values = survey_worksheet.col_values(11)[1:]
     active_percentage = activity_values.count('y') / len(activity_values)*100
-    print(f"- {Style.BRIGHT}{round(active_percentage)}%{Style.RESET_ALL} of individuals are physically"
-          " active.\n\n")
+    print(f"- {Style.BRIGHT}{round(active_percentage)}%{Style.RESET_ALL} of"
+          " individuals are physically active.\n\n")
 
     while True:
         menu_prompt = input("Press 'y' return to the main menu\n")
@@ -215,7 +223,8 @@ def main():
     Runs the start program print message and choice function
     """
     print(Fore.BLACK + Back.WHITE + Style.BRIGHT +
-          " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N   S U R V E Y ")
+          " T H E   P A N E M   N A T I O N A L   P O P U L A T I O N"
+          "   S U R V E Y ")
     get_program_choice()
 
 
