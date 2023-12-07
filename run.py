@@ -61,7 +61,7 @@ def get_survey_data():
     print("   example: 1,2,3,4\n\n")
     time.sleep(1)
     print("By completing the survey, you can lower the possibility of being"
-          " chosen as a Tribute in the next annual Hunger Games.\n\n")
+          " chosen\nas a Tribute in the next annual Hunger Games.\n\n")
     time.sleep(1)
     print(Style.BRIGHT +
           "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R"

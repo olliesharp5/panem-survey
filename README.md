@@ -187,3 +187,4 @@ The following git commands were used throughout development to push code to the 
 
 * I got the code for clearing the terminal from [stack overflow](https://stackoverflow.com/questions/2084508/clear-terminal-in-python)
 * I got the code for delaying the clearing of the console from [pierian training](https://pieriantraining.com/adding-delay-in-python-a-beginners-guide/#:~:text=Python%20provides%20a%20built%2Din,a%20specified%20number%20of%20seconds.)
+* I got the code for how to import colorama from [stack overflow](https://stackoverflow.com/questions/9846683/how-to-install-colorama-in-python)
