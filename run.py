@@ -28,7 +28,7 @@ Validates their input and triggers desired program function
 def get_program_choice():
     while True:
         choice = input(
-            "To submit data press 'a', to view the statistics press 'b':\n\n")
+            "- To submit data press 'a'\n- To view statistics press 'b'\n")
 
         if choice == 'a':
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -62,7 +62,7 @@ def get_survey_data():
     print("By completing the survey, you can lower the possibility of being"
           " chosen as a Tribute in the next annual Hunger Games.\n\n")
     time.sleep(1)
-    print("M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
+    print(Fore.BLACK + Back.WHITE + Style.BRIGHT + "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
     time.sleep(1)
 
     while True:
@@ -162,44 +162,46 @@ Returns the user to the main menu
 
 
 def calculate_statistics():
+    os.system('cls' if os.name == 'nt' else 'clear')
     print("Calculating statistics...\n\n")
+    time.sleep(1)
     print("C U R R E N T   S T A T I S T I C S\n")
     survey_worksheet = SHEET.worksheet("results")
 
     name_values = survey_worksheet.col_values(1)[1:]
     total_entries = sum(1 for value in name_values if value)
-    print(f"- {total_entries} individuals have participated in the survey.")
+    print(f"- {Fore.BLACK + Back.WHITE}{total_entries}{Style.RESET_ALL} individuals have participated in the survey.")
 
     age_values = survey_worksheet.col_values(2)[1:]
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
     print(
         f"- The average age of survey participants is "
-        f"{round(average_age)} years old.")
+        f"{Fore.BLACK + Back.WHITE}{round(average_age)}{Style.RESET_ALL} years old.")
 
     youngest = min(age_values)
-    print(f"- The youngest participant is {youngest} years old.")
+    print(f"- The youngest participant is {Fore.BLACK + Back.WHITE}{youngest}{Style.RESET_ALL} years old.")
 
     oldest = max(age_values)
-    print(f"- The oldest participant is {oldest} years old.")
+    print(f"- The oldest participant is {Fore.BLACK + Back.WHITE}{oldest}{Style.RESET_ALL} years old.")
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(f"- {round(illness_percentage)}% of respondents reported having"
+    print(f"- {Fore.BLACK + Back.WHITE}{round(illness_percentage)}%{Style.RESET_ALL} of respondents reported having"
           " an illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count(
         'y') / len(marital_status_values)*100
-    print(f"- {round(married_percentage)}% of participants are married.")
+    print(f"- {Fore.BLACK + Back.WHITE}{round(married_percentage)}%{Style.RESET_ALL} of participants are married.")
 
     children_values = survey_worksheet.col_values(7)[1:]
     children_percentage = children_values.count('y') / len(children_values)*100
-    print(f"- {round(children_percentage)}% of respondents have children.")
+    print(f"- {Fore.BLACK + Back.WHITE}{round(children_percentage)}%{Style.RESET_ALL} of respondents have children.")
 
     activity_values = survey_worksheet.col_values(11)[1:]
     active_percentage = activity_values.count('y') / len(activity_values)*100
-    print(f"- {round(active_percentage)}% of individuals are physically"
+    print(f"- {Fore.BLACK + Back.WHITE}{round(active_percentage)}%{Style.RESET_ALL} of individuals are physically"
           " active.\n\n")
 
     while True:
@@ -212,5 +214,5 @@ def calculate_statistics():
             print("Error: Invalid input. Please enter 'y'.")
 
 
-print("Welcome to the Panem national population survey.")
+print(Style.BRIGHT + "WELCOME TO THE PANEM NATIONAL POPULATION SURVEY\n\n")
 get_program_choice()
