@@ -48,7 +48,8 @@ def get_survey_data():
     Prints questions to the user and passes their response to the validator
     Puts user data into a list to send to worksheet
     """
-    print("1. Please answer all the questions truthfully.")
+    print(Fore.BLACK + Back.WHITE + Style.BRIGHT + " S U R V E Y ")
+    print("\n1. Please answer all the questions truthfully.")
     time.sleep(1)
     print("2. Type your answers in lowercase.")
     time.sleep(1)
@@ -59,7 +60,7 @@ def get_survey_data():
     print("By completing the survey, you can lower the possibility of being"
           " chosen as a Tribute in the next annual Hunger Games.\n\n")
     time.sleep(1)
-    print(Fore.BLACK + Back.WHITE + Style.BRIGHT +
+    print(Style.BRIGHT +
           "M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
     time.sleep(1)
 
@@ -68,7 +69,7 @@ def get_survey_data():
         if continue_prompt == 'n':
             # clears console for windows, mac and linux
             os.system('cls' if os.name == 'nt' else 'clear')
-            get_program_choice()
+            main()
             return
 
         name = validate_data("What is your name?\n", 'string')
