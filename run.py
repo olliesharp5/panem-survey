@@ -18,6 +18,8 @@ SHEET = GSPREAD_CLIENT.open('panem_survey')
 Obtain which program to open based on the users input
 Validates their input and triggers desired program function
 """
+
+
 def get_program_choice():
     while True:
         choice = input(
@@ -35,10 +37,12 @@ def get_program_choice():
 
 
 """
-Prints instructions for the survery to user 
+Prints instructions for the survery to user
 Prints questions to the user and passes their response to the validator
 Puts user data into a list to send to worksheet
 """
+
+
 def get_survey_data():
     print("Please answer all the questions truthfully.")
     print("Type your answers in lowercase. For answers requiring multiple\nitems please separate with commas without spaces.")
@@ -76,9 +80,11 @@ def get_survey_data():
 
 
 """
-Validates each data input by user depending on the question asked 
+Validates each data input by user depending on the question asked
 Prints a ValueError if invalid information submitted
 """
+
+
 def validate_data(question, validation_type):
     while True:
         user_input = input(question)
@@ -112,9 +118,11 @@ def validate_data(question, validation_type):
 
 
 """
-Accesses the google worksheet and adds the user inputted data to the bottom row 
+Accesses the google worksheet and adds the user inputted data to the bottom row
 Returns the user to the main menu
 """
+
+
 def update_survey(user_data):
     print("Updating survey...\n")
     survey_worksheet = SHEET.worksheet("results")
@@ -128,9 +136,11 @@ def update_survey(user_data):
 
 """
 Fetches values from the worksheet, performs calculations based on the statistic
-Prints the result to the user 
+Prints the result to the user
 Returns the user to the main menu
 """
+
+
 def calculate_statistics():
     print("Calculating statistics...\n")
     survey_worksheet = SHEET.worksheet("results")
@@ -167,7 +177,7 @@ def calculate_statistics():
     activity_values = survey_worksheet.col_values(11)[1:]
     active_percentage = activity_values.count('y') / len(activity_values)*100
     print(f"{round(active_percentage)}% of people are physically active.")
-    
+
     while True:
         menu_prompt = input("Press 'y' return to the main menu\n")
         if menu_prompt == 'y':
