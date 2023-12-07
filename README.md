@@ -1,6 +1,6 @@
 # Panem Survey
 
-Welcome to the Panem national population survey. This survey is designed to obtain information about the fictional population of Panem as seen in the books and films; The Hunger Games. The motivation for users to submit information is that they will have less of a chance to be chosen for the annual Hunger Games. 
+Welcome to the Panem national population survey. This survey is designed to obtain information about the fictional population of Panem as seen in the books and films: The Hunger Games. The motivation for users to submit information is that they will have less of a chance to be chosen for the annual Hunger Games. 
 In addition to the survey form, this terminal also contains a section where users can view the statistics based on current submissions. 
 
 # Table of Contents
@@ -37,7 +37,7 @@ This website is targeting the whole population of Panem.
 The site is focused on simplicity and ease of navigation so users can interact with the survey as easily as possible. 
 
 ## User stories
-As the sole developer of this website, my goal is to create a survey on behalf of the goverment that is accessible to a wide range of users and collects the data in an external document for later reference. 
+As the sole developer of this website, my goal is to create a survey on behalf of the government that is accessible to a wide range of users and collects the data in an external document for later reference. 
 I came up with the following points, which are applicable to the users:
 
 - As a user, I want to understand the purpose of this website quickly and easily.
@@ -77,7 +77,7 @@ The start section is the "landing page" of the survey. The user is met with a we
 
 ![start_section](./readme_assets/start_section.png)
 
-* Survey_information
+* Survey information
 
 If the user inputs "a" to the terminal at the start section the survey information section will display. This section informs users how to submit their data to the survey and provides more information about the benefits and use of the survey. The terminal then prompts the user to input "y" to continue or "n" to return to the start section.
 
@@ -106,7 +106,7 @@ If the user inputs "b" at the start section they will be directed to the statist
 
 In the future I would like to add,
 
-* custom styling to the webpage around the terminal to reflect the survey.
+*   Custom styling to the webpage around the terminal to reflect the survey.
 
 
 ## Testing
@@ -165,7 +165,7 @@ None
 
 ### Version Control
 
-- I used Visual Studio code editor to create my site and pushed to GitHub to the remote repository hangman-pp3.
+- I used CodeAnywhere to create my site and pushed to GitHub to the remote repository panem_survey.
 
 The following git commands were used throughout development to push code to the remote repo:
 

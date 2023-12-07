@@ -55,6 +55,7 @@ def get_survey_data():
     while True:
         continue_prompt = input("Press 'y' to continue or 'n' to exit:\n")
         if continue_prompt == 'n':
+            # clears console for windows, mac and linux
             os.system('cls' if os.name == 'nt' else 'clear')
             get_program_choice()
             return
