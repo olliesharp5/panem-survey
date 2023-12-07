@@ -45,9 +45,11 @@ Puts user data into a list to send to worksheet
 
 def get_survey_data():
     print("Please answer all the questions truthfully.")
-    print("Type your answers in lowercase. For answers requiring multiple\nitems please separate with commas without spaces.")
+    print("Type your answers in lowercase. For answers requiring multiple"
+          "items please separate with commas without spaces.")
     print("Example: 1,2,3,4")
-    print("Completion of the survey will reduce your chance of being selected\nas Tribute in the next annual Hunger Games…")
+    print("Completion of the survey will reduce your chance of being selected"
+          "as Tribute in the next annual Hunger Games…")
     print("May the odds be ever in your favor.")
 
     while True:
@@ -68,12 +70,14 @@ def get_survey_data():
         survival_skills = validate_data(
             "How would you rate your survival skills (1-10)\n", 'rating')
         education = validate_data(
-            "What is the highest level of education you have completed?\n", 'string')
+            "What is the highest level of education you have completed?\n",
+            'string')
         physically_active = validate_data(
             "Are you physically active on a regular basis? (y/n)\n", 'yes_no')
 
-        user_data = [name, age, district, occupation, illness, married, children,
-                     special_skills, survival_skills, education, physically_active]
+        user_data = [name, age, district, occupation, illness, married,
+                     children, special_skills, survival_skills, education,
+                     physically_active]
         update_survey(user_data)
         print("Thank you for submitting your answers")
         break
@@ -91,7 +95,8 @@ def validate_data(question, validation_type):
 
         try:
             if validation_type == 'string':
-                if isinstance(user_input, str) and not user_input.isdigit() and user_input != '':
+                if isinstance(user_input, str) and not user_input.isdigit() \
+                        and user_input != '':
                     pass
                 else:
                     raise ValueError
@@ -153,7 +158,8 @@ def calculate_statistics():
     age_values = [int(age) for age in age_values if age]
     average_age = sum(age_values) / len(age_values)
     print(
-        f"The average age of people who have submitted the survey is {round(average_age)} years old.")
+        f"The average age of people who have submitted the survey is "
+        f"{round(average_age)} years old.")
 
     youngest = min(age_values)
     print(f"The youngest age is {youngest} years old.")
@@ -163,7 +169,8 @@ def calculate_statistics():
 
     illness_values = survey_worksheet.col_values(5)[1:]
     illness_percentage = illness_values.count('y') / len(illness_values)*100
-    print(f"{round(illness_percentage)}% of people have indicated they suffer from some sort of illness.")
+    print(f"{round(illness_percentage)}% of people have indicated they suffer "
+          f"from some sort of illness.")
 
     marital_status_values = survey_worksheet.col_values(6)[1:]
     married_percentage = marital_status_values.count(
