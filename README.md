@@ -141,7 +141,7 @@ In the future I would like to add,
 I validated my files using Code Institute's Python Linter.
 No errors or warnings were found when passing though the linter.
 
-![python_linter]()
+![python_linter](./readme_assets/python_linter.png)
 
 
 #### Fixed Bugs
