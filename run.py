@@ -23,10 +23,12 @@ Validates their input and triggers desired program function
 def get_program_choice():
     while True:
         choice = input(
-            "To submit data press 'a', to view the statistics press 'b':\n")
+            "To submit data press 'a', to view the statistics press 'b':\n\n")
 
         if choice == 'a':
-            print("Starting survey...")
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Starting survey...\n\n")
+            time.sleep(2)
             get_survey_data()
             break
         elif choice == 'b':
@@ -44,13 +46,19 @@ Puts user data into a list to send to worksheet
 
 
 def get_survey_data():
-    print("Please answer all the questions truthfully.")
-    print("Type your answers in lowercase. For answers requiring multiple\n"
-          "items please separate with commas without spaces.")
-    print("Example: 1,2,3,4")
-    print("Completion of the survey will reduce your chance of being"
-          " selected\nas Tribute in the next annual Hunger Games…")
-    print("May the odds be ever in your favor.")
+    print("1. Please answer all the questions truthfully.")
+    time.sleep(1)
+    print("2. Type your answers in lowercase.")
+    time.sleep(1)
+    print("3. For answers requiring multiple items please separate with"
+    " commas.")
+    print("   Example: 1,2,3,4\n\n")
+    time.sleep(1)
+    print("By completing the survey, you can lower the possibility of being"
+          " chosen as a Tribute in the next annual Hunger Games.\n\n")
+    time.sleep(1)
+    print("M A Y   T H E   O D D S   B E   E V E R   I N   Y O U R   F A V O R.\n\n")
+    time.sleep(1)
 
     while True:
         continue_prompt = input("Press 'y' to continue or 'n' to exit:\n")
@@ -62,7 +70,8 @@ def get_survey_data():
 
         name = validate_data("What is your name?\n", 'string')
         age = validate_data("What is your age?\n", 'age')
-        district = validate_data("Which district are your from?\n", 'district')
+        district = validate_data("Which district are your from? (1-13)\n",
+                                 'district')
         occupation = validate_data("What is your occupation?\n", 'string')
         illness = validate_data("Do you have any illnesses? (y/n)\n", 'yes_no')
         married = validate_data("Are you married? (y/n)\n", 'yes_no')
