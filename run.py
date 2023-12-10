@@ -74,34 +74,36 @@ def get_survey_data():
                                 f" '{Fore.YELLOW}{Style.BRIGHT}"
                                 f"n{Style.RESET_ALL}' to exit:\n")
         if continue_prompt == 'n':
-            # clears console for windows, mac and linux
             os.system('cls' if os.name == 'nt' else 'clear')
             main()
-            return
+            break
+        elif continue_prompt == 'y':
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-        name = validate_data("What is your name?\n", 'string')
-        age = validate_data("What is your age?\n", 'age')
-        district = validate_data("Which district are your from? (1-13)\n",
-                                 'district')
-        occupation = validate_data("What is your occupation?\n", 'string')
-        illness = validate_data("Do you have any illnesses? (y/n)\n", 'yes_no')
-        married = validate_data("Are you married? (y/n)\n", 'yes_no')
-        children = validate_data("Do you have any children? (y/n)\n", 'yes_no')
-        special_skills = validate_data("List any special skills:\n", 'string')
-        survival_skills = validate_data(
-            "How would you rate your survival skills (1-10)\n", 'rating')
-        education = validate_data(
-            "What is the highest level of education you have completed?\n",
-            'string')
-        physically_active = validate_data(
-            "Are you physically active on a regular basis? (y/n)\n", 'yes_no')
+    name = validate_data("What is your name?\n", 'string')
+    age = validate_data("What is your age?\n", 'age')
+    district = validate_data("Which district are your from? (1-13)\n",
+                             'district')
+    occupation = validate_data("What is your occupation?\n", 'string')
+    illness = validate_data("Do you have any illnesses? (y/n)\n", 'yes_no')
+    married = validate_data("Are you married? (y/n)\n", 'yes_no')
+    children = validate_data("Do you have any children? (y/n)\n", 'yes_no')
+    special_skills = validate_data("List any special skills:\n", 'string')
+    survival_skills = validate_data(
+        "How would you rate your survival skills (1-10)\n", 'rating')
+    education = validate_data(
+        "What is the highest level of education you have completed?\n",
+        'string')
+    physically_active = validate_data(
+        "Are you physically active on a regular basis? (y/n)\n", 'yes_no')
 
-        user_data = [name, age, district, occupation, illness, married,
-                     children, special_skills, survival_skills, education,
-                     physically_active]
-        update_survey(user_data)
-        print("Thank you for submitting your answers")
-        break
+    user_data = [name, age, district, occupation, illness, married,
+                 children, special_skills, survival_skills, education,
+                 physically_active]
+    update_survey(user_data)
+    print("Thank you for submitting your answers")
 
 
 def validate_data(question, validation_type):
@@ -168,12 +170,12 @@ def calculate_statistics():
     print("Calculating statistics...\n\n")
     time.sleep(1)
     print(Fore.BLACK + Back.WHITE + Style.BRIGHT +
-          " C U R R E N T   S T A T I S T I C S \n")
+          " C U R R E N T   S T A T I S T I C S ")
     survey_worksheet = SHEET.worksheet("results")
 
     name_values = survey_worksheet.col_values(1)[1:]
     total_entries = sum(1 for value in name_values if value)
-    print(f"- {Style.BRIGHT}{total_entries}{Style.RESET_ALL} individuals"
+    print(f"\n- {Style.BRIGHT}{total_entries}{Style.RESET_ALL} individuals"
           " have participated in the survey.")
 
     age_values = survey_worksheet.col_values(2)[1:]
